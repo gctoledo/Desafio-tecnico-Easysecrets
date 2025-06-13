@@ -1,9 +1,6 @@
 import type { ApexOptions } from "apexcharts";
 
-export function getChartOptions(
-  months: string[],
-  theme: "light" | "dark"
-): ApexOptions {
+export function getChartOptions(months: string[]): ApexOptions {
   return {
     chart: {
       toolbar: {
@@ -33,7 +30,7 @@ export function getChartOptions(
       enabled: true,
     },
     tooltip: {
-      theme,
+      theme: "dark",
     },
   };
 }

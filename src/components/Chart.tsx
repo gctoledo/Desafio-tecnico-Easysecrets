@@ -1,13 +1,10 @@
 import Chart from "react-apexcharts";
 import { useChartStore } from "../store/chart";
 import { snapshotOf } from "../utils/snapshotOf";
-import { useTheme } from "../hooks/useTheme";
 import { getChartOptions } from "../config/chartOptions";
 import { filterChartData } from "../utils/filterChartData";
 
 const ImplChart = () => {
-  const { theme } = useTheme();
-
   /**
    * Utilizei seletores individuas para garantir que
    * apenas o campo que foi alterado seja re-renderizado
@@ -18,7 +15,7 @@ const ImplChart = () => {
   const selectedProducts = useChartStore((state) => state.selectedProducts);
   const selectedMonths = useChartStore((state) => state.selectedMonths);
 
-  const options = getChartOptions(selectedMonths, theme);
+  const options = getChartOptions(selectedMonths);
 
   const filteredData = filterChartData(
     rawData,
