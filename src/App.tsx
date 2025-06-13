@@ -1,6 +1,7 @@
 import ImplChart from "./components/Chart";
 import ChartSelector from "./components/ChartSelector";
 import Container from "./components/Container";
+import Filters from "./components/Filters";
 import Header from "./components/Header";
 
 function App() {
@@ -9,6 +10,8 @@ function App() {
       <Header />
 
       <ChartSelector />
+
+      <Filters />
 
       <div className="w-full max-w-3xl">
         <ImplChart />
