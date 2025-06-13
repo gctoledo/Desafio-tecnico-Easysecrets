@@ -14,6 +14,7 @@ export function getChartOptions(
       },
       background: "var(--color-background)",
       foreColor: "var(--color-foreground)",
+      fontFamily: "var(--font-display)",
     },
     title: {
       text: "Dashboard de Vendas",
