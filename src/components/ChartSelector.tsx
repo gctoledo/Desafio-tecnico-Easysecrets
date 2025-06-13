@@ -1,4 +1,5 @@
-import { useChartStore, type ChartType } from "../store/chart";
+import type { ChartType } from "../interfaces/chart";
+import { useChartStore } from "../store/chart";
 import Button from "./Button";
 
 type ChartOptionsProps = {

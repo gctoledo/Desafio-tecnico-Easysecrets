@@ -1,4 +1,4 @@
-import type { ApexChartData } from "../store/chart";
+import type { ApexChartData } from "../interfaces/chart";
 
 export function filterChartData(
   rawData: ApexChartData[],
