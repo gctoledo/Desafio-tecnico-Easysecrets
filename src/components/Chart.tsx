@@ -15,7 +15,13 @@ const ImplChart = () => {
   const dataSnapshot = snapshotOf(data);
 
   return (
-    <Chart options={options} type={type} series={dataSnapshot} height={400} />
+    <Chart
+      key={type}
+      options={options}
+      type={type}
+      series={dataSnapshot}
+      height={400}
+    />
   );
 };
 

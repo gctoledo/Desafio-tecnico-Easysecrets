@@ -17,7 +17,7 @@ export function getChartOptions(
       fontFamily: "var(--font-display)",
     },
     title: {
-      text: "Dashboard de Vendas",
+      text: "Vendas por mês",
       align: "center",
       style: {
         color: "var(--color-foreground)",
