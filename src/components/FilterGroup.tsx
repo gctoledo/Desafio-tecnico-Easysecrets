@@ -10,28 +10,36 @@ const FilterGroup = ({
   options,
   selected,
   onToggle,
-}: FilterGroupProps) => {
-  return (
-    <div>
-      <h2 className="font-semibold mb-3 text-center">{title}</h2>
-      <div className="block md:grid md:grid-cols-3 md:gap-4">
-        {options.map((item) => (
+}: FilterGroupProps) => (
+  <div className="w-full max-w-sm p-4 space-y-4 rounded shadow-md bg-secondary text-secondary-foreground">
+    <h2 className="text-center font-semibold">{title}</h2>
+
+    <div className="gap-2 text-center flex flex-col md:grid md:grid-cols-3">
+      {options.map((item) => {
+        const isSelected = selected.includes(item);
+
+        return (
           <label
             key={item}
-            className="flex items-center justify-start md:justify-center gap-2 text-sm cursor-pointer"
+            className={`px-3 py-1 text-sm rounded-full border cursor-pointer transition-all
+              ${
+                isSelected
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-transparent border-muted text-muted-foreground hover:bg-muted/30"
+              }`}
           >
             <input
               type="checkbox"
-              className="accent-primary w-3 h-3"
-              checked={selected.includes(item)}
+              className="hidden"
+              checked={isSelected}
               onChange={() => onToggle(item)}
             />
             {item}
           </label>
-        ))}
-      </div>
+        );
+      })}
     </div>
-  );
-};
+  </div>
+);
 
 export default FilterGroup;
