@@ -70,5 +70,10 @@ describe("<App />", () => {
     expect(screen.getByTestId("mock-chart")).toHaveTextContent(
       "ChartType: bar"
     );
+
+    await user.click(screen.getByText("Gráfico de área"));
+    expect(screen.getByTestId("mock-chart")).toHaveTextContent(
+      "ChartType: area"
+    );
   });
 });

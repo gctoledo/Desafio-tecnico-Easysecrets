@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import salesData from "../data/sales.json";
 
-type ChartType = "line" | "bar";
+export type ChartType = "line" | "bar" | "area";
 
 export interface ApexChartData {
   name: string;
