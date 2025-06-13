@@ -50,14 +50,14 @@ $ npm run dev
 
 ## 🔧 Testes
 
-O projeto possui atualmente >90% de cobertura. para rodar os testes, siga:
+O projeto possui atualmente >95% de cobertura. para rodar os testes, siga:
 
 ```bash
 # Para rodar os testes
 $ npm run test
 
 # Para visualizar cobertura de testes
-$ npx vitest run --coverage
+$ npm run test-coverage
 ```
 
 ---
@@ -118,7 +118,7 @@ Vitest é uma excelente ferramente de testes, que apesar de utilizar Jest como b
 
 - ✅ Dark mode com persistência local (localStorage)
 - ✅ Filtros interativos por produto e mês
-- ✅ Responsividade aprimorada para mobile/tablet
+- ✅ Responsividade aprimorada para mobile/tablet com `mobile first`
 - ✅ Cobertura de testes alta
 - ✅ Estilo consistente usando variáveis CSS para temas
 
