@@ -16,6 +16,20 @@ Este projeto foi desenvolvido como parte de um desafio técnico da Easysecrets. 
 
 ---
 
+## ✅ Requisitos para rodar o projeto
+
+Antes de rodar o projeto, verifique se você tem os seguintes itens instalados:
+
+- **Git**  
+  Para clonar o repositório.  
+  [Baixar o Git](https://git-scm.com/downloads)
+
+- **Node.js (versão 18 ou superior)**  
+  Ambiente de execução do JavaScript.  
+  [Baixar o Node.js](https://nodejs.org/)
+
+---
+
 ## 🔧 Como rodar o projeto localmente
 
 ```bash
@@ -23,7 +37,7 @@ Este projeto foi desenvolvido como parte de um desafio técnico da Easysecrets. 
 $ git clone https://github.com/gctoledo/Desafio-tecnico-Easysecrets.git
 
 # Acesse o diretório
-$ cd chart-dashboard
+$ cd Desafio-tecnico-Easysecrets
 
 # Instale as dependências
 $ npm install
@@ -36,7 +50,7 @@ $ npm run dev
 
 ## 🔧 Testes
 
-O projeto possui mais de 90% de cobertura, para rodar os testes, siga:
+O projeto possui atualmente >90% de cobertura. para rodar os testes, siga:
 
 ```bash
 # Para rodar os testes
@@ -81,7 +95,7 @@ Apesar de eu já ter trabalhado com Context API ou Redux, achei Zustand uma abor
 - Permite customização visual completa
 - Suporte nativo a exportação, tooltips, dark mode, etc.
 
-Eu já havia utilizado ApexCharts antes, mas utilizei muito mais o Recharts. A principio, Recharts seria minha opção, mas depois de ler um pouco a documentação do ApexCharts, achei que faria mais sentido, principalmente pela facilidade de integrar com Dark Mode.
+Eu já havia utilizado ApexCharts antes, mas utilizei muito mais o Recharts. A princípio, Recharts seria minha opção, mas depois de ler um pouco a documentação do ApexCharts, achei que faria mais sentido, principalmente pela facilidade de integrar com Dark Mode.
 
 ### TailwindCSS
 
