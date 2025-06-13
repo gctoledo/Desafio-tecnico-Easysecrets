@@ -1,54 +1,125 @@
-# React + TypeScript + Vite
+# Dashboard de Vendas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto foi desenvolvido como parte de um desafio técnico da Easysecrets. Seu objetivo é exibir dados de vendas mensais a partir de um arquivo JSON, utilizando um gráfico interativo e personalizável.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 💡 Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+- React 19
+- TypeScript
+- Vite
+- Zustand (gerenciamento de estado)
+- ApexCharts (renderização de gráficos)
+- TailwindCSS v4 (estilização)
+- Vitest + Testing Library (testes unitários)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🔧 Como rodar o projeto localmente
+
+```bash
+# Clone o repositório
+$ git clone https://github.com/gctoledo/Desafio-tecnico-Easysecrets.git
+
+# Acesse o diretório
+$ cd chart-dashboard
+
+# Instale as dependências
+$ npm install
+
+# Rode o servidor de desenvolvimento
+$ npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🔧 Testes
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+O projeto possui mais de 90% de cobertura, para rodar os testes, siga:
+
+```bash
+# Para rodar os testes
+$ npm run test
+
+# Para visualizar cobertura de testes
+$ npx vitest run --coverage
+```
+
+---
+
+## 📖 Estrutura de Pastas
+
+```
+src/
+├── components/        # Componentes reutilizáveis
+├── config/            # Configurações externas
+├── data/              # Dados de vendas
+├── hooks/             # Hooks customizados
+├── interfaces/        # Tipagens TypeScript
+├── store/             # Store global
+├── utils/             # Funções auxiliares
+├── App.tsx            # Entrypoint principal da aplicação
+└── index.css          # Estilização global
+```
+
+---
+
+## 🔍 Decisões Técnicas
+
+### Zustand
+
+- Mais simples e performático para estados globais
+- Não exige provider
+- Melhor leitura com seletores individuais (evita re-render)
+
+Apesar de eu já ter trabalhado com Context API ou Redux, achei Zustand uma abordagem mais simples e direta. Considerando que é um projeto com um escopo não tão grande, ele fez muito sentido aqui.
+
+### ApexCharts
+
+- Biblioteca madura com suporte a gráficos responsivos e interativos
+- Permite customização visual completa
+- Suporte nativo a exportação, tooltips, dark mode, etc.
+
+Eu já havia utilizado ApexCharts antes, mas utilizei muito mais o Recharts. A principio, Recharts seria minha opção, mas depois de ler um pouco a documentação do ApexCharts, achei que faria mais sentido, principalmente pela facilidade de integrar com Dark Mode.
+
+### TailwindCSS
+
+- Padroniza o layout de forma rápida
+- Utiliza CSS custom properties para alternar temas light/dark
+- Possui boa sinergia com componentes reutilizáveis
+
+Não tenho muito o que dizer sobre Tailwind, é uma lib fantástica. Apesar da polêmica sobre Tailwind sujar muito o jsx/tsx, e é um pouco verdade, acho que é um problema contornável se o desenvolvedor souber componentizar e isolar bem a aplicação. E quem não entende CSS, não consegue tirar proveito da produtividade que o Tailwind entrega. Pra esse projeto, como o tempo era muito importante, achei ele uma excelente opção.
+
+### Vitest + Testing Library
+
+- Utilizado para garantir qualidade do código
+- Cobertura atual >95%
+
+Vitest é uma excelente ferramente de testes, que apesar de utilizar Jest como base, o Vitest é muito mais rápido. Além de ter uma integração excelente com o Vite. Então aqui foi uma escolha fácil.
+
+---
+
+## ✨ Diferenciais Implementados
+
+- ✅ Dark mode com persistência local (localStorage)
+- ✅ Filtros interativos por produto e mês
+- ✅ Responsividade aprimorada para mobile/tablet
+- ✅ Cobertura de testes alta
+- ✅ Estilo consistente usando variáveis CSS para temas
+
+---
+
+## 📊 Exemplo do JSON utilizado
+
+```json
+[
+  {
+    "produto": "Refrigerante",
+    "vendas": [
+      { "mes": "Janeiro", "quantidade": 120 },
+      { "mes": "Fevereiro", "quantidade": 150 }
+    ]
+  }
+]
 ```
