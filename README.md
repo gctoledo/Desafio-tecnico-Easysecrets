@@ -2,6 +2,11 @@
 
 Este projeto foi desenvolvido como parte de um desafio técnico da Easysecrets. Seu objetivo é exibir dados de vendas mensais a partir de um arquivo JSON, utilizando um gráfico interativo e personalizável.
 
+Criei um vídeo para falar um pouco das ferramentas que eu utilizei e o porquê que eu as utilizei, detalhar algumas funcionalidades e mostrar o projeto rodando.
+Falei sobre algumas curiosidades e tomadas de decisões que tomei durante o desenvolvimento, recomendo assistir (nem que seja em 1.5x hahaha).
+
+[Confira o vídeo.](https://youtu.be/A-i95WJVdLQ)
+
 [Acesse o projeto em produção!](https://desafio-tecnico-easysecrets-teal.vercel.app)
 
 ---
@@ -52,7 +57,10 @@ $ npm run dev
 
 ## 🧪 Testes
 
-O projeto possui atualmente >95% de cobertura. Para rodar os testes, siga:
+O projeto possui atualmente >95% de cobertura.
+A cobertura não inclui testes E2E, que não adicionei pela limitação do tempo, mas que poderia ser feito utilizando Cypress ou até mesmo Playwright, que possui uma boa integração com Vite.
+
+Para rodar os testes, siga:
 
 ```bash
 # Para rodar os testes
@@ -82,6 +90,13 @@ src/
 ---
 
 ## 🔍 Decisões Técnicas
+
+### Vite
+
+- Tempo de build extremamente rápido
+- Ótima integração com TypeScript, Tailwind e Vitest
+
+Optei pelo Vite ao invés do Next.js, por exemplo, porque o Next, como um framework, iria entregar diversas funcionalidades que eu não precisaria utilizar nesse projeto. Apesar de também ser uma ótima opção, para o propósito do desafio o Vite me atendia perfeitamente como ferramenta de build/desenvolvimento. Além disso possui uma integração fluida com Tailwind e ferramentas de teste como o Vitest. Isso me permitiu configurar o ambiente rapidamente e focar na implementação das funcionalidades do projeto.
 
 ### Zustand
 
@@ -121,7 +136,7 @@ Vitest é uma excelente ferramente de testes, que apesar de inspirado no Jest, �
 - ✅ Dark mode com persistência local (localStorage)
 - ✅ Filtros interativos por produto e mês
 - ✅ Responsividade aprimorada para mobile/tablet com `mobile first`
-- ✅ Cobertura de testes alta
+- ✅ Cobertura de testes
 - ✅ Estilo consistente usando variáveis CSS para temas
 
 ---
