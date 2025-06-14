@@ -5,20 +5,34 @@ describe("useTheme", () => {
   beforeEach(() => {
     document.documentElement.className = "";
     localStorage.clear();
+
+    Object.defineProperty(window, "matchMedia", {
+      writable: true,
+      value: (query: string) => ({
+        matches: false, // default to light mode
+        media: query,
+        onchange: null,
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      }),
+    });
   });
 
-  it("retorna 'light' se nenhum valor estiver no localStorage", () => {
+  it("returns 'light' if no localStorage value and system theme is light", () => {
     const { result } = renderHook(() => useTheme());
     expect(result.current.theme).toBe("light");
   });
 
-  it("retorna 'dark' se estiver salvo no localStorage", () => {
+  it("returns 'dark' if stored in localStorage", () => {
     localStorage.setItem("theme", "dark");
     const { result } = renderHook(() => useTheme());
     expect(result.current.theme).toBe("dark");
   });
 
-  it("altera para 'dark' e aplica classe 'dark' no html", () => {
+  it("applies 'dark' class to HTML when switching to 'dark'", () => {
     const { result } = renderHook(() => useTheme());
 
     act(() => {
@@ -30,7 +44,7 @@ describe("useTheme", () => {
     expect(result.current.theme).toBe("dark");
   });
 
-  it("altera para 'light' e remove a classe 'dark'", () => {
+  it("removes 'dark' class from HTML when switching to 'light'", () => {
     localStorage.setItem("theme", "dark");
     document.documentElement.classList.add("dark");
 
@@ -43,5 +57,21 @@ describe("useTheme", () => {
     expect(document.documentElement.classList.contains("dark")).toBe(false);
     expect(localStorage.getItem("theme")).toBe("light");
     expect(result.current.theme).toBe("light");
+  });
+
+  it("uses system preference if no theme is stored", () => {
+    window.matchMedia = vi.fn().mockImplementation((query) => ({
+      matches: query.includes("dark"),
+      media: query,
+      onchange: null,
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+    }));
+
+    const { result } = renderHook(() => useTheme());
+    expect(result.current.theme).toBe("dark");
   });
 });
