@@ -4,7 +4,7 @@ import { snapshotOf } from "../utils/snapshotOf";
 import { getChartOptions } from "../config/chartOptions";
 import { filterChartData } from "../utils/filterChartData";
 
-const ImplChart = () => {
+const SalesChart = () => {
   /**
    * Utilizei seletores individuas para garantir que
    * apenas o campo que foi alterado seja re-renderizado
@@ -38,4 +38,4 @@ const ImplChart = () => {
   );
 };
 
-export default ImplChart;
+export default SalesChart;

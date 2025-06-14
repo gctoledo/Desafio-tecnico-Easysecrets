@@ -9,7 +9,7 @@ describe("useTheme", () => {
     Object.defineProperty(window, "matchMedia", {
       writable: true,
       value: (query: string) => ({
-        matches: false, // default to light mode
+        matches: false,
         media: query,
         onchange: null,
         addListener: vi.fn(),

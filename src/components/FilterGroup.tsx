@@ -21,15 +21,17 @@ const FilterGroup = ({
         return (
           <label
             key={item}
-            className={`px-3 py-1 text-sm rounded-full border cursor-pointer transition-all
+            htmlFor={item}
+            className={`px-3 py-1 text-sm rounded-full border cursor-pointer transition-all duration-300
               ${
                 isSelected
-                  ? "bg-primary text-primary-foreground border-primary"
+                  ? "bg-primary text-primary-foreground border-primary hover:bg-accent"
                   : "bg-transparent border-muted text-muted-foreground hover:bg-muted/30"
               }`}
           >
             <input
               type="checkbox"
+              id={item}
               className="hidden"
               checked={isSelected}
               onChange={() => onToggle(item)}

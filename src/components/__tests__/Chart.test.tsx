@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ImplChart from "../Chart";
+import SalesChart from "../Chart";
 import { useChartStore } from "../../store/chart";
 
 vi.mock("react-apexcharts", () => ({
@@ -15,7 +15,7 @@ vi.mock("../../hooks/useTheme", () => ({
   useTheme: () => ({ theme: "light" }),
 }));
 
-describe("<ImplChart />", () => {
+describe("<SalesChart />", () => {
   beforeEach(() => {
     useChartStore.setState({
       months: ["Jan", "Fev", "Mar"],
@@ -30,7 +30,7 @@ describe("<ImplChart />", () => {
   });
 
   it("render chart with filtered data", () => {
-    render(<ImplChart />);
+    render(<SalesChart />);
 
     const chart = screen.getByTestId("mock-chart");
 
@@ -41,7 +41,7 @@ describe("<ImplChart />", () => {
 
   it("update chart when type changes", () => {
     useChartStore.setState({ type: "line" });
-    render(<ImplChart />);
+    render(<SalesChart />);
 
     const chart = screen.getByTestId("mock-chart");
 
@@ -50,7 +50,7 @@ describe("<ImplChart />", () => {
 
   it("not render series if no product is selected", () => {
     useChartStore.setState({ selectedProducts: [] });
-    render(<ImplChart />);
+    render(<SalesChart />);
 
     const chart = screen.getByTestId("mock-chart");
 

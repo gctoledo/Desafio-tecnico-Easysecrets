@@ -36,7 +36,7 @@ describe("<App />", () => {
     expect(screen.getByTestId("mock-chart")).toHaveTextContent("Series: 2");
   });
 
-  it("remove uma série ao desmarcar produto", async () => {
+  it("remove a serie when uncheck product", async () => {
     const user = userEvent.setup();
     render(<App />);
 

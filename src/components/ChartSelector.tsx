@@ -9,6 +9,7 @@ type ChartOptionsProps = {
 
 const ChartSelector = () => {
   const setType = useChartStore((state) => state.setChartType);
+  const type = useChartStore((state) => state.type);
 
   const chartOptions: ChartOptionsProps[] = [
     { name: "barra", type: "bar" },
@@ -22,7 +23,8 @@ const ChartSelector = () => {
         <Button
           key={option.type}
           onClick={() => setType(option.type)}
-          className="px-4 py-2 text-sm md:text-base"
+          className={`px-4 py-2 text-sm md:text-base disabled:bg-primary/70 disabled:cursor-default`}
+          disabled={option.type === type}
         >
           Gráfico de {option.name}
         </Button>
