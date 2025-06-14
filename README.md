@@ -2,6 +2,8 @@
 
 Este projeto foi desenvolvido como parte de um desafio técnico da Easysecrets. Seu objetivo é exibir dados de vendas mensais a partir de um arquivo JSON, utilizando um gráfico interativo e personalizável.
 
+[Acesse o projeto em produção!](https://desafio-tecnico-easysecrets-teal.vercel.app)
+
 ---
 
 ## 💡 Tecnologias Utilizadas
@@ -48,9 +50,9 @@ $ npm run dev
 
 ---
 
-## 🔧 Testes
+## 🧪 Testes
 
-O projeto possui atualmente >95% de cobertura. para rodar os testes, siga:
+O projeto possui atualmente >95% de cobertura. Para rodar os testes, siga:
 
 ```bash
 # Para rodar os testes
@@ -87,7 +89,7 @@ src/
 - Não exige provider
 - Melhor leitura com seletores individuais (evita re-render)
 
-Apesar de eu já ter trabalhado com Context API ou Redux, achei Zustand uma abordagem mais simples e direta. Considerando que é um projeto com um escopo não tão grande, ele fez muito sentido aqui.
+Apesar de eu já ter trabalhado com alguns outros gerenciadores de estado, achei Zustand uma abordagem mais simples e direta. Considerando que é um projeto com um escopo não tão grande, ele fez muito sentido aqui, sendo um meio-termo excelente entre Context API e Redux.
 
 ### ApexCharts
 
@@ -110,7 +112,7 @@ Não tenho muito o que dizer sobre Tailwind, é uma lib fantástica. Apesar da p
 - Utilizado para garantir qualidade do código
 - Cobertura atual >95%
 
-Vitest é uma excelente ferramente de testes, que apesar de utilizar Jest como base, o Vitest é muito mais rápido. Além de ter uma integração excelente com o Vite. Então aqui foi uma escolha fácil.
+Vitest é uma excelente ferramente de testes, que apesar de inspirado no Jest, é muito mais rápido. Além disso possui uma integração excelente com o Vite. Então se mostrou a melhor escolha para o projeto.
 
 ---
 
