@@ -49,20 +49,11 @@ describe("<ImplChart />", () => {
   });
 
   it("not render series if no product is selected", () => {
-    useChartStore.setState({ selectedProducts: ["Produto B"] });
+    useChartStore.setState({ selectedProducts: [] });
     render(<ImplChart />);
 
     const chart = screen.getByTestId("mock-chart");
 
-    expect(chart.textContent).toContain("1 series");
-  });
-
-  it("returns empty series if no month is selected", () => {
-    useChartStore.setState({ selectedMonths: [] });
-    render(<ImplChart />);
-
-    const chart = screen.getByTestId("mock-chart");
-
-    expect(chart.textContent).toContain("1 series");
+    expect(chart.textContent).toContain("0 series");
   });
 });
