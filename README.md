@@ -1,9 +1,9 @@
-# Dashboard de Vendas
+# Dashboard de Vendas - Desafio técnico - Easysecrets
 
 Este projeto foi desenvolvido como parte de um desafio técnico da Easysecrets. Seu objetivo é exibir dados de vendas mensais a partir de um arquivo JSON, utilizando um gráfico interativo e personalizável.
 
-Criei um vídeo para falar um pouco das ferramentas que eu utilizei e o porquê que eu as utilizei, detalhar algumas funcionalidades e mostrar o projeto rodando.
-Falei sobre algumas curiosidades e tomadas de decisões que tomei durante o desenvolvimento, recomendo assistir (nem que seja em 1.5x hahaha).
+Criei um vídeo para detalhar mais sobre as ferramentas que eu utilizei e o porquê que eu as utilizei, falar sobre algumas funcionalidades e mostrar o projeto rodando.
+Contei também sobre algumas curiosidades e tomadas de decisões que tomei durante o desenvolvimento.
 
 [Confira o vídeo.](https://youtu.be/A-i95WJVdLQ)
 
