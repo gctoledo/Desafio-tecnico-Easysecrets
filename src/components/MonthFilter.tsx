@@ -7,11 +7,15 @@ const MonthFilter = () => {
   const setSelected = useChartStore((state) => state.setSelectedMonths);
 
   const toggle = (month: string) => {
+    let updated: string[];
+
     if (selected.includes(month)) {
-      setSelected(selected.filter((m) => m !== month));
+      updated = selected.filter((m) => m !== month);
     } else {
-      setSelected([...selected, month]);
+      updated = months.filter((m) => selected.includes(m) || m === month);
     }
+
+    setSelected(updated);
   };
 
   return (
