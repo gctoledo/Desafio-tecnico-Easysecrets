@@ -1,6 +1,6 @@
 import type { ApexOptions } from "apexcharts";
 
-export function getChartOptions(months: string[]): ApexOptions {
+export function getChartOptions(categories: string[]): ApexOptions {
   return {
     chart: {
       toolbar: {
@@ -21,7 +21,7 @@ export function getChartOptions(months: string[]): ApexOptions {
       },
     },
     xaxis: {
-      categories: months,
+      categories,
     },
     stroke: {
       curve: "smooth",

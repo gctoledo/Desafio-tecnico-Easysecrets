@@ -1,6 +1,6 @@
 import type { ApexChartData } from "../interfaces/chart";
 
-export function filterChartData(
+export function filterData(
   rawData: ApexChartData[],
   allMonths: string[],
   selectedProducts: string[],
@@ -9,12 +9,9 @@ export function filterChartData(
   return rawData
     .filter((product) => selectedProducts.includes(product.name))
     .map((product) => {
-      const filteredSeries: number[] = [];
-
-      allMonths.forEach((mes, index) => {
-        if (selectedMonths.includes(mes)) {
-          filteredSeries.push(product.data[index]);
-        }
+      const filteredSeries: number[] = selectedMonths.map((month) => {
+        const index = allMonths.indexOf(month);
+        return product.data[index];
       });
 
       return {

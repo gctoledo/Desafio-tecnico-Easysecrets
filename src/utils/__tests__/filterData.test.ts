@@ -1,6 +1,6 @@
-import { filterChartData } from "../filterChartData";
+import { filterData } from "../filterData";
 
-describe("filterChartData", () => {
+describe("filterData", () => {
   const rawData = [
     {
       name: "Refrigerante",
@@ -19,7 +19,7 @@ describe("filterChartData", () => {
   const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"];
 
   it("should return all data if no products or months are selected", () => {
-    const result = filterChartData(
+    const result = filterData(
       rawData,
       months,
       ["Refrigerante", "Suco", "Salgadinho"],
@@ -31,7 +31,7 @@ describe("filterChartData", () => {
   it("should return only selected products", () => {
     const selectedProducts = ["Suco"];
 
-    const result = filterChartData(rawData, months, selectedProducts, months);
+    const result = filterData(rawData, months, selectedProducts, months);
 
     expect(result).toEqual([
       {
@@ -44,7 +44,7 @@ describe("filterChartData", () => {
   it("should return only selected months", () => {
     const selectedMonths = ["Fevereiro", "Abril"];
 
-    const result = filterChartData(
+    const result = filterData(
       rawData,
       months,
       ["Refrigerante"],
@@ -60,13 +60,13 @@ describe("filterChartData", () => {
   });
 
   it("should return empty array if no products are selected", () => {
-    const result = filterChartData(rawData, months, [], months);
+    const result = filterData(rawData, months, [], months);
 
     expect(result).toEqual([]);
   });
 
   it("should return empty array if no months are selected", () => {
-    const result = filterChartData(rawData, months, ["Suco"], []);
+    const result = filterData(rawData, months, ["Suco"], []);
 
     expect(result).toEqual([
       {
