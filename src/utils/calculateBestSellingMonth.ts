@@ -1,9 +1,9 @@
 import type { ApexChartData } from "../interfaces/chart";
 
-export const calculateBestSellingMonth = (
+export function calculateBestSellingMonth(
   data: ApexChartData[],
   selectedMonths: string[]
-) => {
+): string | null {
   if (!data.length || !data[0].data.length) return null;
 
   const totalPerMonth = data[0].data.map((_, index) => {
@@ -14,4 +14,4 @@ export const calculateBestSellingMonth = (
   const maxMonthIndex = totalPerMonth.indexOf(maxValue);
 
   return selectedMonths[maxMonthIndex];
-};
+}

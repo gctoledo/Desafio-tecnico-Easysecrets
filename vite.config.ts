@@ -14,7 +14,12 @@ export default defineConfig({
       reporter: ["text", "html"],
       reportsDirectory: "./coverage",
       include: ["src/**/*.{ts,tsx}"],
-      exclude: ["src/config/**", "src/**/*.d.ts", "vite.config.ts"],
+      exclude: [
+        "src/**/*.test.{ts,tsx}",
+        "src/config/**",
+        "src/**/*.d.ts",
+        "vite.config.ts",
+      ],
     },
   },
 });

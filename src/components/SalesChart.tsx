@@ -1,29 +1,14 @@
 import Chart from "react-apexcharts";
+import { getChartOptions } from "../config/chartOptions";
 import { useChartStore } from "../store/chart";
 import { snapshotOf } from "../utils/snapshotOf";
-import { getChartOptions } from "../config/chartOptions";
-import { filterData } from "../utils/filterData";
+import { useSalesData } from "../hooks/useSalesData";
 
 const SalesChart = () => {
-  /**
-   * Utilizei seletores individuas para garantir que
-   * apenas o campo que foi alterado seja re-renderizado
-   */
-  const months = useChartStore((state) => state.months);
-  const rawData = useChartStore((state) => state.data);
   const type = useChartStore((state) => state.type);
-  const selectedProducts = useChartStore((state) => state.selectedProducts);
-  const selectedMonths = useChartStore((state) => state.selectedMonths);
+  const { filteredData, selectedMonths, selectedProducts } = useSalesData();
 
   const options = getChartOptions(selectedMonths);
-
-  const filteredData = filterData(
-    rawData,
-    months,
-    selectedProducts,
-    selectedMonths
-  );
-
   const dataSnapshot = snapshotOf(filteredData);
 
   return (

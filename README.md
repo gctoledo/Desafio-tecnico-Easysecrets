@@ -101,6 +101,7 @@ src/
 ├── hooks/
 │   ├── __tests__                         # Testes dos hooks
 │   ├── useTheme.ts                       # Hook para gerenciamento do tema
+│   ├── useSalesData.ts                   # Hook para fornecer dados de vendas
 ├── interfaces/
 │   ├── chart.ts                          # Tipagem para os gráficos
 │   ├── sales.ts                          # Tipagem para os dados de vendas
