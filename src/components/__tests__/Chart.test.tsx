@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import SalesChart from "../Chart";
+import SalesChart from "../SalesChart";
 import { useChartStore } from "../../store/chart";
 
 vi.mock("react-apexcharts", () => ({

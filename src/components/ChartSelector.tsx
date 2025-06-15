@@ -18,7 +18,7 @@ const ChartSelector = () => {
   ];
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 justify-center">
       {chartOptions.map((option) => (
         <Button
           key={option.type}

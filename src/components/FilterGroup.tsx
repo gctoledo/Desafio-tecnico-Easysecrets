@@ -1,3 +1,5 @@
+import Card from "./Card";
+
 interface FilterGroupProps {
   title: string;
   options: string[];
@@ -11,7 +13,7 @@ const FilterGroup = ({
   selected,
   onToggle,
 }: FilterGroupProps) => (
-  <div className="w-full max-w-sm p-4 space-y-4 rounded shadow-md bg-secondary text-secondary-foreground">
+  <Card className="space-y-4 w-full max-w-96 p-4">
     <h2 className="text-center font-semibold">{title}</h2>
 
     <div className="gap-2 text-center flex flex-col md:grid md:grid-cols-3">
@@ -41,7 +43,7 @@ const FilterGroup = ({
         );
       })}
     </div>
-  </div>
+  </Card>
 );
 
 export default FilterGroup;

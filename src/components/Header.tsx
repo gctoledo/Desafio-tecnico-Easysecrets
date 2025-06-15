@@ -1,13 +1,14 @@
+import Container from "./Container";
 import ThemeButton from "./ThemeButton";
 
 const Header = () => {
   return (
-    <header className="flex items-center justify-center gap-6">
-      <h1 className="font-bold text-xl md:text-2xl">
-        Dashboard de Vendas - Easysecrets
-      </h1>
+    <header className="w-full h-16 bg-primary flex items-center justify-center">
+      <Container className="flex items-center justify-between">
+        <h1 className="font-bold text-xl text-white">Dashboard de Vendas</h1>
 
-      <ThemeButton />
+        <ThemeButton />
+      </Container>
     </header>
   );
 };

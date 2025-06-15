@@ -3,7 +3,7 @@ import ProductFilter from "./ProductFilter";
 
 const Filters = () => {
   return (
-    <div className="flex gap-10 w-full justify-center items-stretch">
+    <div className="flex gap-10 justify-center">
       <MonthFilter />
 
       <ProductFilter />

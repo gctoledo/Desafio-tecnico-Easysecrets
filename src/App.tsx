@@ -1,24 +1,30 @@
-import SalesChart from "./components/Chart";
+import SalesChart from "./components/SalesChart";
 import ChartSelector from "./components/ChartSelector";
 import Container from "./components/Container";
 import Filters from "./components/Filters";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Stats from "./components/Stats";
 
 function App() {
   return (
-    <Container>
+    <>
       <Header />
 
-      <main className="w-full flex flex-col gap-6 items-center justify-center">
-        <ChartSelector />
+      <Container className="flex min-h-[calc(100vh_-_128px)] items-center py-4">
+        <main className="w-full space-y-6 flex flex-col">
+          <Filters />
 
-        <Filters />
+          <Stats />
 
-        <div className="w-full max-w-3xl">
+          <ChartSelector />
+
           <SalesChart />
-        </div>
-      </main>
-    </Container>
+        </main>
+      </Container>
+
+      <Footer />
+    </>
   );
 }
 

@@ -9,7 +9,7 @@ const Card = ({ children, className, ...props }: CardProps) => {
   return (
     <div
       className={twMerge(
-        "rounded shadow-md bg-secondary-foreground/3 border border-secondary-foreground/5 text-secondary-foreground",
+        "rounded shadow-md bg-secondary-foreground/5 border border-secondary-foreground/8 text-secondary-foreground",
         className
       )}
       {...props}

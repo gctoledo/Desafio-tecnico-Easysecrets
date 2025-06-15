@@ -2,7 +2,7 @@ import Chart from "react-apexcharts";
 import { useChartStore } from "../store/chart";
 import { snapshotOf } from "../utils/snapshotOf";
 import { getChartOptions } from "../config/chartOptions";
-import { filterChartData } from "../utils/filterChartData";
+import { filterData } from "../utils/filterData";
 
 const SalesChart = () => {
   /**
@@ -17,7 +17,7 @@ const SalesChart = () => {
 
   const options = getChartOptions(selectedMonths);
 
-  const filteredData = filterChartData(
+  const filteredData = filterData(
     rawData,
     months,
     selectedProducts,
@@ -27,14 +27,16 @@ const SalesChart = () => {
   const dataSnapshot = snapshotOf(filteredData);
 
   return (
-    <Chart
-      key={type + selectedProducts.join() + selectedMonths.join()}
-      options={options}
-      type={type}
-      series={dataSnapshot}
-      height={400}
-      width="100%"
-    />
+    <div className="w-full max-w-3xl mx-auto">
+      <Chart
+        key={type + selectedProducts.join() + selectedMonths.join()}
+        options={options}
+        type={type}
+        series={dataSnapshot}
+        height={400}
+        width="100%"
+      />
+    </div>
   );
 };
 

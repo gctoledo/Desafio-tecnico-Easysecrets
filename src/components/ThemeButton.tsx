@@ -10,7 +10,7 @@ const ThemeButton = () => {
   };
 
   return (
-    <Button onClick={toggleTheme} className="py-1 px-2 rounded-full">
+    <Button onClick={toggleTheme} className="py-2 px-3 rounded-full">
       {theme === "dark" ? "☀️" : "🌙"}
     </Button>
   );

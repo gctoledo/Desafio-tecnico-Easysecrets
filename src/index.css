@@ -11,11 +11,17 @@
   --color-primary: #7543ca;
   --color-primary-foreground: #fff;
 
-  --color-accent: #674b99;
+  --color-accent: #5d3a99;
   --color-accent-foreground: #fff;
 
   --color-secondary: #f4f4f5;
   --color-secondary-foreground: #0a0a0a;
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1280px;
 }
 
 @layer theme {
@@ -23,7 +29,7 @@
     --color-background: #09090b;
     --color-foreground: #fff;
 
-    --color-primary: #8e67d3;
+    --color-primary: #6a44ac;
     --color-primary-foreground: #fff;
 
     --color-accent: #7655af;

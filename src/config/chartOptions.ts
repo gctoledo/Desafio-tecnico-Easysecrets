@@ -32,5 +32,13 @@ export function getChartOptions(categories: string[]): ApexOptions {
     tooltip: {
       theme: "dark",
     },
+    noData: {
+      text: "Sem dados para exibir",
+    },
+    legend: {
+      onItemClick: {
+        toggleDataSeries: false,
+      },
+    },
   };
 }
