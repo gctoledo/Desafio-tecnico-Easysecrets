@@ -5,7 +5,9 @@ import FilterGroup from "../FilterGroup";
 describe("<FilterGroup />", () => {
   const options = ["Item A", "Item B", "Item C"];
 
-  it("render title and checkboxes", () => {
+  it("render title and checkboxes", async () => {
+    const user = userEvent.setup();
+
     render(
       <FilterGroup
         title="Exemple"
@@ -15,11 +17,9 @@ describe("<FilterGroup />", () => {
       />
     );
 
-    expect(screen.getByText("Exemple")).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "Exemple" }));
 
-    options.forEach((label) => {
-      expect(screen.getByLabelText(label)).toBeInTheDocument();
-    });
+    expect(screen.getByText("Exemple")).toBeInTheDocument();
 
     expect(screen.getByLabelText("Item A")).toBeChecked();
     expect(screen.getByLabelText("Item B")).not.toBeChecked();
@@ -38,6 +38,8 @@ describe("<FilterGroup />", () => {
         onToggle={onToggle}
       />
     );
+
+    await user.click(screen.getByRole("button", { name: "Exemplo" }));
 
     await user.click(screen.getByLabelText("Item B"));
     expect(onToggle).toHaveBeenCalledWith("Item B");

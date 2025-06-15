@@ -6,3 +6,7 @@ afterEach(() => {
   cleanup();
   vi.clearAllMocks();
 });
+
+beforeAll(() => {
+  window.scrollTo = vi.fn();
+});

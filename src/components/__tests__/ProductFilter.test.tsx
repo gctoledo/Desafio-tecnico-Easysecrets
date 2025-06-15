@@ -8,7 +8,7 @@ const INITIAL_PRODUCTS = ["Refrigerante", "Suco", "Salgadinho"];
 describe("<ProductFilter />", () => {
   beforeEach(() => {
     useChartStore.setState({
-      selectedProducts: INITIAL_PRODUCTS,
+      selectedProducts: [...INITIAL_PRODUCTS],
       data: INITIAL_PRODUCTS.map((name) => ({
         name,
         data: [0, 0, 0],
@@ -16,8 +16,13 @@ describe("<ProductFilter />", () => {
     });
   });
 
-  it("render all products and checked", () => {
+  it("render all products and checked", async () => {
+    const user = userEvent.setup();
     render(<ProductFilter />);
+
+    await user.click(
+      screen.getByRole("button", { name: "Filtrar por produto" })
+    );
 
     INITIAL_PRODUCTS.forEach((product) => {
       const checkbox = screen.getByLabelText(product);
@@ -29,6 +34,10 @@ describe("<ProductFilter />", () => {
   it("remove product when unchecked", async () => {
     const user = userEvent.setup();
     render(<ProductFilter />);
+
+    await user.click(
+      screen.getByRole("button", { name: "Filtrar por produto" })
+    );
 
     const checkbox = screen.getByLabelText("Suco");
     expect(checkbox).toBeChecked();
@@ -43,6 +52,10 @@ describe("<ProductFilter />", () => {
   it("add product when checked", async () => {
     const user = userEvent.setup();
     render(<ProductFilter />);
+
+    await user.click(
+      screen.getByRole("button", { name: "Filtrar por produto" })
+    );
 
     const checkbox = screen.getByLabelText("Salgadinho");
 

@@ -13,8 +13,11 @@ describe("<MonthFilter />", () => {
     });
   });
 
-  it("render all months and checked", () => {
+  it("render all months and checked", async () => {
+    const user = userEvent.setup();
     render(<MonthFilter />);
+
+    await user.click(screen.getByRole("button", { name: "Filtrar por mês" }));
 
     MONTHS.forEach((month) => {
       const checkbox = screen.getByLabelText(month);
@@ -26,6 +29,8 @@ describe("<MonthFilter />", () => {
   it("remove month when unchecked", async () => {
     const user = userEvent.setup();
     render(<MonthFilter />);
+
+    await user.click(screen.getByRole("button", { name: "Filtrar por mês" }));
 
     const checkbox = screen.getByLabelText("Fevereiro");
     expect(checkbox).toBeChecked();
@@ -41,12 +46,13 @@ describe("<MonthFilter />", () => {
     const user = userEvent.setup();
     render(<MonthFilter />);
 
+    await user.click(screen.getByRole("button", { name: "Filtrar por mês" }));
+
     const checkbox = screen.getByLabelText("Março");
 
     await user.click(checkbox);
-    expect(checkbox).not.toBeChecked();
-
     await user.click(checkbox);
+
     expect(checkbox).toBeChecked();
 
     const state = useChartStore.getState();

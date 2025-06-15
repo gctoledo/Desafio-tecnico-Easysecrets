@@ -32,13 +32,16 @@ describe("<App />", () => {
 
   it("render chart with all series", () => {
     render(<App />);
-
     expect(screen.getByTestId("mock-chart")).toHaveTextContent("Series: 2");
   });
 
   it("remove a serie when uncheck product", async () => {
     const user = userEvent.setup();
     render(<App />);
+
+    await user.click(
+      screen.getByRole("button", { name: "Filtrar por produto" })
+    );
 
     const sucoCheckbox = screen.getByLabelText("Suco");
     await user.click(sucoCheckbox);
@@ -49,6 +52,8 @@ describe("<App />", () => {
   it("remove all data if no month is selected", async () => {
     const user = userEvent.setup();
     render(<App />);
+
+    await user.click(screen.getByRole("button", { name: "Filtrar por mês" }));
 
     await user.click(screen.getByLabelText("Janeiro"));
     await user.click(screen.getByLabelText("Fevereiro"));

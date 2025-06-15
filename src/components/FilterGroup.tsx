@@ -1,4 +1,8 @@
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Card from "./Card";
+import ChevronIcon from "./ChevronIcon";
+import FilterOptions from "./FilterOptions";
 
 interface FilterGroupProps {
   title: string;
@@ -12,38 +16,39 @@ const FilterGroup = ({
   options,
   selected,
   onToggle,
-}: FilterGroupProps) => (
-  <Card className="space-y-4 w-full max-w-96 p-4">
-    <h2 className="text-center font-semibold">{title}</h2>
+}: FilterGroupProps) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-    <div className="gap-2 text-center flex flex-col md:grid md:grid-cols-3">
-      {options.map((item) => {
-        const isSelected = selected.includes(item);
+  return (
+    <Card className="w-full max-w-96 py-4 h-full">
+      <button
+        className="w-full flex items-center justify-between font-semibold px-4 cursor-pointer"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span>{title}</span>
+        <ChevronIcon rotate={isOpen} />
+      </button>
 
-        return (
-          <label
-            key={item}
-            htmlFor={item}
-            className={`px-3 py-1 text-sm rounded-full border cursor-pointer transition-all duration-300
-              ${
-                isSelected
-                  ? "bg-primary text-primary-foreground border-primary hover:bg-accent"
-                  : "bg-transparent border-muted text-muted-foreground hover:bg-muted/30"
-              }`}
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            key="filter-content"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
           >
-            <input
-              type="checkbox"
-              id={item}
-              className="hidden"
-              checked={isSelected}
-              onChange={() => onToggle(item)}
+            <FilterOptions
+              options={options}
+              selected={selected}
+              onToggle={onToggle}
             />
-            {item}
-          </label>
-        );
-      })}
-    </div>
-  </Card>
-);
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </Card>
+  );
+};
 
 export default FilterGroup;
