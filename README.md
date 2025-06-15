@@ -76,15 +76,44 @@ $ npm run test-coverage
 
 ```
 src/
-├── components/        # Componentes reutilizáveis
-├── config/            # Configurações externas
-├── data/              # Dados de vendas
-├── hooks/             # Hooks customizados
-├── interfaces/        # Tipagens TypeScript
-├── store/             # Store global
-├── utils/             # Funções auxiliares
-├── App.tsx            # Entrypoint principal da aplicação
-└── index.css          # Estilização global
+├── components/
+│   ├── __tests__/                        # Testes dos componentes
+│   ├── Button.tsx                        # Botão personalizado
+│   ├── Card.tsx                          # Card para exibição de informações
+│   ├── ChartSelector.tsx                 # Seletor de gráficos
+│   ├── ChevronIcon.tsx                   # Componente para SVG de seta
+│   ├── Container.tsx                     # Container para centralização de conteúdos
+│   ├── FilterGroup.tsx                   # Box para exibição de tipos de filtros diferentes
+│   ├── FilterOptions.tsx                 # Exibição das opções de filtros
+│   ├── Filters.tsx                       # Renderização de todos os filtros
+│   ├── Footer.tsx                        # Footer da aplicação
+│   ├── Header.tsx                        # Header da aplicação
+│   ├── MonthFilter.tsx                   # Filtro por mês
+│   ├── ProductFilter.tsx                 # Filtro por produto
+│   ├── SalesChart.tsx                    # Renderização de gráfico de vendas
+│   ├── Stats.tsx                         # Renderização de estatisticas sobre vendas
+│   ├── ThemeButton.tsx                   # Botão para alterar entre temas
+├── config/
+│   ├── chartOptions.ts                   # Configuração para exibição de gráficos do ApexCharts
+│   ├── testSetup.ts                      # Configuração dos testes
+├── data/
+│   ├── sales.json                        # Dados das vendas
+├── hooks/
+│   ├── __tests__                         # Testes dos hooks
+│   ├── useTheme.ts                       # Hook para gerenciamento do tema
+├── interfaces/
+│   ├── chart.ts                          # Tipagem para os gráficos
+│   ├── sales.ts                          # Tipagem para os dados de vendas
+├── store/
+│   ├── chart.ts                          # Store para gerenciamento de estados dos gráficos
+├── utils/
+│   ├── __tests__                         # Testes das funções utilitárias
+│   ├── calculateBestSellingMonth.ts      # Função auxiliar para calcular melhor mês de vendas
+│   ├── calculateBestSellingProduct.ts    # Função auxiliar para calcular o produto mais vendido
+│   ├── calculateTotalSales.ts            # Função auxiliar para calcular o total de vendas
+│   ├── filterData.ts                     # Função auxiliar filtrar as vendas por mês e produtos selecionados
+├── App.tsx                               # Entrypoint principal da aplicação
+└── index.css                             # Estilização global
 ```
 
 ---
