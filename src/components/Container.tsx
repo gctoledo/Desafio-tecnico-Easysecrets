@@ -1,10 +1,13 @@
+import { twMerge } from "tailwind-merge";
+
 interface ContainerProps {
   children: React.ReactNode;
+  className?: string;
 }
 
-const Container = ({ children }: ContainerProps) => {
+const Container = ({ children, className }: ContainerProps) => {
   return (
-    <div className="w-full flex flex-col min-h-screen items-center justify-center px-2 py-4 gap-6 md:px-6">
+    <div className={twMerge("container mx-auto px-4 md:px-2", className)}>
       {children}
     </div>
   );
